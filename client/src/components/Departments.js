@@ -1,14 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import { Link, } from 'react-router-dom';
-import { Segment } from 'semantic-ui-react';
+import { Segment, Button } from 'semantic-ui-react';
 
 class Departments extends React.Component {
   state = { departments: [], };
 
   componentDidMount() {
     axios.get("/api/departments")
-      .then(res => {
+      .then( res => {
         this.setState({ departments: res.data, });
       }) 
   }
@@ -30,6 +30,9 @@ class Departments extends React.Component {
           Departments
         </h1>
         <br />
+        <Link to="/departments/new">
+          <Button raised >New Department</Button>
+        </Link>
         <ul>
           {this.renderDepartments()}
         </ul>
