@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link, } from 'react-router-dom';
 import { Segment, Button } from 'semantic-ui-react';
+import styled from "styled-components";
 
 class Departments extends React.Component {
   state = { departments: [], };
@@ -15,9 +16,12 @@ class Departments extends React.Component {
 
   renderDepartments = () => {
     return this.state.departments.map(d => (
-      <Link to={`/departments/${d.id}`}>
+      <Link to={`/departments/${d.id}/items`}>
       <br />
-        <Segment raised> {d.name} </Segment>
+        <Segment as ={Transparent}
+        raised> 
+        {d.name} 
+        </Segment>
       </Link>
     ));
   }
@@ -31,7 +35,7 @@ class Departments extends React.Component {
         </h1>
         <br />
         <Link to="/departments/new">
-          <Button raised >New Department</Button>
+          <Button basic >New Department</Button>
         </Link>
         <ul>
           {this.renderDepartments()}
@@ -40,4 +44,9 @@ class Departments extends React.Component {
     )
   }
 }
+
+const Transparent = styled.div`
+  background: transparent !important;
+`;
+
 export default Departments;

@@ -4,25 +4,12 @@ import { Button, } from "semantic-ui-react";
 
 const Navbar = () => (
   <nav>
-    <NavLink exact activeStyle={styles.active.area} to="/"><Button>Home</Button></NavLink>
+    <NavLink exact to="/"><Button basic >Home</Button></NavLink>
     {' '}
-    <NavLink exact activeStyle={styles.active.area} to="/about"><Button>About</Button></NavLink>
+    <NavLink exact to="/about"><Button basic>About</Button></NavLink>
     {' '}
-    <NavLink exact activeStyle={styles.active.area} to="/departments"><Button>Departments</Button></NavLink>
+    <NavLink exact to="/departments"><Button basic>Departments</Button></NavLink>
   </nav>
 )
-
-const styles = {
-  active: {
-
-    textDecoration: "italic",
-    fontWeight: "bold",
-    color: "blue",
-  },
-  area: {
-    display: "flex",
-    justifyContent: "center",
-  }
-};
 
 export default Navbar;

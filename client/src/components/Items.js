@@ -1,34 +1,68 @@
-import React from "react";
 import axios from 'axios';
-import Navbar from './components/Navbar';
-
+import React from "react";
+import { Link } from "react-router-dom";
+import {  Segment, } from "semantic-ui-react";
+// import { HeaderText } from "./styles/AppStyles";
 class Items extends React.Component {
-  state = { items: [], }
+  state = { 
+    items: [], 
+    departmentName: "", 
+  };
   
   componentDidMount() {
-    axios.get(`/api/departments/${department.id}/items`)
+    const { id } = this.props.match.params;
+    axios.get(`/api/departments/${id}/items`)
       .then( res => {
         this.setState({ items: res.data, });
       }) 
+      .catch(err => {
+        console.log(err);
+      })
+      this.getDepartment();
   }
 
   renderItems = () => {
     return this.state.items.map(i => (
-      <Link to={`/departments/${department.id}/items/${id}`}>
+      <div>
       <br />
         <Segment raised>
-         {i.title}  
+        <h3> 
+          Title: 
+        {i.title} 
+        </h3> 
+         <br />
+         <h5> 
+           Description: 
+         <br />
          {i.description}
+         </h5>
+         <br />
+         <h5>
          {i.price}
+         </h5>
          </Segment>
-      </Link>
+         </div>
     ));
+  }
+
+  getDepartment = () => {
+    let {id} = this.props.match.params;
+    axios.get(`/api/departments/${id}`)
+    .then(res => {
+      this.setState({
+        departmentName: res.data.name
+      })
+    })
   }
 
 
   render() {
+    let {departmentName} = this.state;
     return (
       <div>
+        <h1>
+          {departmentName}
+          </h1>
         <ul>
           {this.renderItems()}
         </ul>
