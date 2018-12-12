@@ -9,18 +9,17 @@ class Departments extends React.Component {
 
   componentDidMount() {
     axios.get("/api/departments")
-      .then( res => {
+      .then(res => {
         this.setState({ departments: res.data, });
-      }) 
+      })
   }
 
   renderDepartments = () => {
     return this.state.departments.map(d => (
       <Link to={`/departments/${d.id}/items`}>
-      <br />
-        <Segment as ={Transparent}
-        raised> 
-        {d.name} 
+        <br />
+        <Segment inverted>
+          {d.name}
         </Segment>
       </Link>
     ));
@@ -28,6 +27,7 @@ class Departments extends React.Component {
 
 
   render() {
+    const { id } = this.state.departments;
     return (
       <div>
         <h1>
@@ -35,7 +35,7 @@ class Departments extends React.Component {
         </h1>
         <br />
         <Link to="/departments/new">
-          <Button basic >New Department</Button>
+          <Button color="black" >New Department</Button>
         </Link>
         <ul>
           {this.renderDepartments()}
@@ -45,8 +45,6 @@ class Departments extends React.Component {
   }
 }
 
-const Transparent = styled.div`
-  background: transparent !important;
-`;
+
 
 export default Departments;

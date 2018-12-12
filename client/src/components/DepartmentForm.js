@@ -3,12 +3,13 @@ import axios from "axios";
 import { Button, Form } from "semantic-ui-react";
 
 class DepartmentForm extends React.Component {
-  state = { name: "", };
+  state = { department: "",
+    name: "", };
 
   componentDidMount() {
   const { id } = this.props.match.params;
   if (id)
-    axios.get(`/api/departments/${id}`)
+    axios.get(`/api/departments/${id}/items`)
       .then(res => {
         const { name, } = res.data;
         this.setState({ name, });
@@ -25,12 +26,12 @@ class DepartmentForm extends React.Component {
     const department = { ...this.state };
     const { id } = this.props.match.params;
     if (id) {
-      axios.put(`/api/departments/${id}`, department)
+      axios.put(`/api/departments/${id}/items`, department)
         .then(res => {
-          this.props.history.push(`/departments/${id}`)
+          this.props.history.push(`/departments/${id}/items`)
         })
     } else {
-      axios.post("/api/departments", department)
+      axios.post("/api/departments/items", department)
         .then(res => {
           this.props.history.push('/departments')
         })

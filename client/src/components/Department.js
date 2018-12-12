@@ -31,11 +31,6 @@ class Department extends React.Component {
           {name}
         </h1>
       <br />
-      <Link to={`/departments/${id}/edit`}>
-          <Button basic >Edit Department</Button>
-        </Link>
-        <Link to={`/api/departments/${id}/items`}></Link>
-       <Button basic onClick={this.handleDelete}>Delete</Button>
       </div >
     )
   }

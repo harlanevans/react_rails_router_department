@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const AppContainer = styled.div`
-  background: linear-gradient(to left top, purple, pink);
-  height: 500vh;
+  background: linear-gradient(to right bottom, purple, blue, red, blue, purple);
+  height: 400vh;
 `;
 
 export const Foot = styled.footer`
