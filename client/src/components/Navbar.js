@@ -12,4 +12,11 @@ const Navbar = () => (
   </nav>
 )
 
+  // const styles = {
+  //   active: {
+  //     color: "orange",
+  //     fontWeight: "bold",
+  //   }
+  // }
+
 export default Navbar;

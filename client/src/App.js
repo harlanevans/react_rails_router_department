@@ -2,7 +2,7 @@ import { Container, } from "semantic-ui-react";
 import { AppContainer, } from './styles/AppStyles';
 
 
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Route, Switch, } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -12,6 +12,7 @@ import Departments from './components/Departments';
 import Department from './components/Department';
 import DepartmentForm from './components/DepartmentForm';
 import Items from "./components/Items";
+import Item from "./components/Item";
 
 
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route exact path='/departments/:id' component={Department} />
           <Route exact path='/departments/:id/items/edit' component={DepartmentForm} />
           <Route exact path='/departments/:id/items' component={Items} />
+          <Route exact path='/departments/:id/items/:id' component={Item} />
           <Route component={NoMatch} />
         </Switch>
       </Fragment>

@@ -15,7 +15,7 @@ class Api::DepartmentsController < ApplicationController
     if department.save
       render json: department
     else
-      render json: department.error
+      render json: department.errors
     end
   end
 
@@ -23,7 +23,7 @@ class Api::DepartmentsController < ApplicationController
     if @department.update(department_params)
       render json: @department
     else
-      render json: @department.error
+      render json: @department.errors
     end
   end
 

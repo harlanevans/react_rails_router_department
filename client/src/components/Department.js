@@ -16,6 +16,8 @@ class Department extends React.Component {
 
   handleDelete = () => {
     const { id, } = this.props.match.params;
+    const remove = window.confirm("Are you sure you want to delete?")
+      if (remove)
     axios.delete(`/api/departments/${id}`)
       .then( res => {
         this.props.history.push("/departments");
@@ -24,7 +26,7 @@ class Department extends React.Component {
 
   
   render() {
-    const { id, name, } = this.state.department;
+    const { name, } = this.state.department;
     return (
       <div>
         <h1>

@@ -16,13 +16,11 @@ class Items extends React.Component {
       .then( res => {
         this.setState({ items: res.data, });
       }) 
-      .catch(err => {
-        console.log(err);
-      })
       this.getDepartment();
   }
 
   renderItems = () => {
+    let {  department, } = this.state.departments;
     return this.state.items.map(i => (
       <div>
       <br />
@@ -41,6 +39,9 @@ class Items extends React.Component {
          <h5>
          ${i.price}
          </h5>
+          <Link to={`/api/departments/${i.id}/items.${i.id}`}>
+          <Button>View Item</Button>
+          </Link>
          </Segment>
          </div>
     ));
@@ -48,6 +49,8 @@ class Items extends React.Component {
 
   handleDelete = () => {
     const { id, } = this.props.match.params;
+    const remove = window.confirm("Are you sure you want to delete?")
+    if (remove)
     axios.delete(`/api/departments/${id}`)
       .then( res => {
         this.props.history.push("/departments");
