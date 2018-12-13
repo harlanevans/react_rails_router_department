@@ -1,33 +1,29 @@
 import React from 'react';
 import axios from 'axios';
 import { Link, } from 'react-router-dom';
-import { Segment, Button } from 'semantic-ui-react';
-import styled from "styled-components";
+import { Segment, Button, Icon } from 'semantic-ui-react';
 
 class Departments extends React.Component {
   state = { departments: [], };
 
   componentDidMount() {
     axios.get("/api/departments")
-      .then(res => {
-        this.setState({ departments: res.data, });
-      })
+      .then( res => this.setState({ departments: res.data, }));
   }
 
   renderDepartments = () => {
     return this.state.departments.map(d => (
-      <Link to={`/departments/${d.id}/items`}>
+      <Link to={`/departments/${d.id}`}>
         <br />
         <Segment inverted>
           {d.name}
         </Segment>
       </Link>
-    ));
+    ))
   }
 
 
   render() {
-    const { id } = this.state.departments;
     return (
       <div>
         <h1>
@@ -35,7 +31,10 @@ class Departments extends React.Component {
         </h1>
         <br />
         <Link to="/departments/new">
-          <Button color="black" >New Department</Button>
+          <Button color="black" animated='fade' >
+          <Button.Content visible>New Department </Button.Content>
+              <Button.Content hidden> Add <Icon name='add' /> </Button.Content>
+            </Button>
         </Link>
         <ul>
           {this.renderDepartments()}

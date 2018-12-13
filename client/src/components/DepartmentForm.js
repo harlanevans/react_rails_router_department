@@ -1,20 +1,19 @@
 import React from 'react';
 import axios from "axios";
-import { Button, Form } from "semantic-ui-react";
+import { Button, Form, Icon } from "semantic-ui-react";
 
 class DepartmentForm extends React.Component {
-  state = { department: "",
-    name: "", };
+  state = { name: "", };
 
   componentDidMount() {
-  const { id } = this.props.match.params;
-  if (id)
-    axios.get(`/api/departments/${id}/items`)
-      .then(res => {
-        const { name, } = res.data;
-        this.setState({ name, });
-      })
-    }
+    const { id } = this.props.match.params;
+    if (id)
+      axios.get(`/api/departments/${id} `)
+        .then(res => {
+          const { name, } = res.data;
+          this.setState({ name, });
+        })
+  }
 
   handleChange = (e) => {
     const { target: { name, value } } = e;
@@ -23,42 +22,50 @@ class DepartmentForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const department = { ...this.state };
+    const name = { ...this.state };
     const { id } = this.props.match.params;
     if (id) {
-      axios.put(`/api/departments/${id}/items`, department)
+      axios.put(`/api/departments/${id}`, name)
         .then(res => {
-          this.props.history.push(`/departments/${id}/items`)
+          this.props.history.push(`/departments/${id}`)
         })
-    } else {
-      axios.post("/api/departments/items", department)
+      } else {
+      axios.post("/api/departments", name)
         .then(res => {
           this.props.history.push('/departments')
         })
-    }
+      }
   }
+
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   axios.post(`/api/departments`, { ...this.state })
+  //     .then( res => this.props.history.push(`/departments/${res.data.id}`))
+  // }
 
 
   render() {
     const { name, } = this.state;
     return (
-      <Form raised onSubmit={this.handleSubmit}>
-      <br />
-        <input
+      <Form onSubmit={this.handleSubmit}>
+        <br />
+        <Form.Input
           name="name"
           placeholder="Name"
+          label="Name"
           value={name}
           onChange={this.handleChange}
           required
         />
         <br />
-        <Button color="black">
-          Submit
+        <Button color="black" animated='fade'>
+        <Button.Content visible>Submit </Button.Content>
+              <Button.Content hidden> <Icon name='check' /> </Button.Content>
           </Button>
       </Form>
-      )
-    }
+    )
   }
+}
 
 
 export default DepartmentForm;

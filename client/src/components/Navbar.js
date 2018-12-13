@@ -1,22 +1,39 @@
 import React from 'react';
 import { NavLink, } from "react-router-dom";
-import { Button, } from "semantic-ui-react";
+import { Button, Segment, Icon } from "semantic-ui-react";
 
 const Navbar = () => (
-  <nav>
-    <NavLink exact to="/"><Button color="black" >Home</Button></NavLink>
-    {' '}
-    <NavLink exact to="/about"><Button color="black">About</Button></NavLink>
-    {' '}
-    <NavLink exact to="/departments"><Button color="black">Departments</Button></NavLink>
-  </nav>
+  <div>
+    <nav>
+      <NavLink exact to="/">
+      <Button color="black" animated='vertical' >
+      <Button.Content visible >Home</Button.Content>
+      <Button.Content hidden ><Icon name='home' /></Button.Content>
+      </Button></NavLink>
+      {' '}
+      <NavLink exact to="/about">
+      <Button color="black" animated='vertical'>
+      <Button.Content visible >About</Button.Content>
+      <Button.Content hidden ><Icon name='question' /></Button.Content>
+      </Button></NavLink>
+
+      {' '}
+      <NavLink exact to="/departments">
+      <Button color="black" animated='vertical'>
+      <Button.Content visible>Departments</Button.Content>
+      <Button.Content hidden><Icon name='book' /></Button.Content>
+      </Button></NavLink>
+      {' '}
+
+    </nav>
+  </div>
 )
 
-  // const styles = {
-  //   active: {
-  //     color: "orange",
-  //     fontWeight: "bold",
-  //   }
-  // }
+// const styles = {
+//   active: {
+//     color: "orange",
+//     fontWeight: "bold",
+//   }
+// }
 
 export default Navbar;

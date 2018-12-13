@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const AppContainer = styled.div`
-  background: linear-gradient(to right top, rgb(0, 150, 150), rgb(0, 68, 204));
+  background: linear-gradient(to right top, rgb(0, 150, 150), rgb(0, 100, 200));
   height: 480vh;
 `;
 

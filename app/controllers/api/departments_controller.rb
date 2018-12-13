@@ -11,7 +11,6 @@ class Api::DepartmentsController < ApplicationController
 
   def create
     department = Department.new(department_params)
-
     if department.save
       render json: department
     else
