@@ -14,9 +14,8 @@ class ItemForm extends React.Component {
 
 
   handleChange = (e) => {
-    const { title, value, } = e.target;
-    // [title] is allowing title to be used as a object key instead of a string
-    this.setState({ [title]: value, });
+    const { name, value, } = e.target;
+    this.setState({ [name]: value, });
   }
 
   handleSubmit = (e) => {
@@ -34,12 +33,14 @@ class ItemForm extends React.Component {
       .then( res => push(`/departments/${id}`))
   }}
 
+  
   render() {
     const { title, description, price } = this.state;
+    const { itemId } = this.props.match.params;
 
     return (
       <div>
-        <h1>Add Item</h1>
+        <h1>{itemId ? "Edit Item" : "Add Item"}</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
             <Form.Input 

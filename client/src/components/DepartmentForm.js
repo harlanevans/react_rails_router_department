@@ -29,12 +29,12 @@ class DepartmentForm extends React.Component {
         .then(res => {
           this.props.history.push(`/departments/${id}`)
         })
-      } else {
+    } else {
       axios.post("/api/departments", name)
         .then(res => {
           this.props.history.push('/departments')
         })
-      }
+    }
   }
 
   // handleSubmit = (e) => {
@@ -47,22 +47,25 @@ class DepartmentForm extends React.Component {
   render() {
     const { name, } = this.state;
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <br />
-        <Form.Input
-          name="name"
-          placeholder="Name"
-          label="Name"
-          value={name}
-          onChange={this.handleChange}
-          required
-        />
-        <br />
-        <Button color="black" animated='fade'>
-        <Button.Content visible>Submit </Button.Content>
-              <Button.Content hidden> <Icon name='check' /> </Button.Content>
+      <div>
+        <h1>Add Department</h1>
+        <Form onSubmit={this.handleSubmit}>
+          <br />
+          <Form.Input
+            name="name"
+            placeholder="Name"
+            label="Name"
+            value={name}
+            onChange={this.handleChange}
+            required
+          />
+          <br />
+          <Button color="black" animated='fade'>
+            <Button.Content visible>Submit </Button.Content>
+            <Button.Content hidden> <Icon name='check' /> </Button.Content>
           </Button>
-      </Form>
+        </Form>
+      </div>
     )
   }
 }
