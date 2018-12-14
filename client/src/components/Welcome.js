@@ -1,18 +1,19 @@
-import React from 'react';
-import { Segment, Button } from "semantic-ui-react"
+// import React from 'react';
+// import { Segment, Button } from "semantic-ui-react"
 
-const welcomeBar = () => (
+// const welcomeBar = () => (
 
-  <Button
-    animated='fade'
-    floated='right'
-    color='black'
-    size='massive'
-  >
-    <Button.Content visible>Welcome</Button.Content>
-    <Button.Content hidden>To Middle Earth </Button.Content>
-  </Button>
+//   <Button
+  
+//     animated='fade'
+//     floated='right'
+//     basic inverted color='white'
+//     size='huge'
+//   >
+//     <Button.Content visible>Welcome</Button.Content>
+//     <Button.Content hidden>To Middle Earth </Button.Content>
+//   </Button>
 
-)
+// )
 
-export default welcomeBar;
+// export default welcomeBar;

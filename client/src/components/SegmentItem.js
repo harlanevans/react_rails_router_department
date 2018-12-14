@@ -4,8 +4,9 @@ import { Segment, Header, Button, Icon } from "semantic-ui-react";
 
 
 const SegmentItem = ({ id, title, description, price, remove, department_id}) => (
-  <Segment.Group inverted >
-    <Segment inverted>
+  <Segment.Group >
+    <Segment raised
+    color='black'>
       <Header as='h3'>
         Title:
      <br />
@@ -26,17 +27,17 @@ const SegmentItem = ({ id, title, description, price, remove, department_id}) =>
       </i>
       </p>
       <Link to={`/departments/${department_id}/items/${id}/`} >
-      <Button inverted color="white" animated='fade'>
+      <Button basic color='black' animated='fade'>
         <Button.Content visible>View </Button.Content>
-        <Button.Content hidden> <Icon name='view'></Icon> </Button.Content>
+        <Button.Content hidden> <Icon name='book'></Icon> </Button.Content>
       </Button>
       </Link>
-      <Button inverted color="white" animated='fade' onClick={() => remove(id)}>
+      <Button basic color='black' animated='fade' onClick={() => remove(id)}>
         <Button.Content visible>Delete </Button.Content>
         <Button.Content hidden> <Icon name='trash'></Icon> </Button.Content>
       </Button>
       <Link to={`/departments/${department_id}/items/${id}/edit`}>
-      <Button inverted color="white" animated='fade'>
+      <Button basic color='black' animated='fade'>
         <Button.Content visible>Edit </Button.Content>
         <Button.Content hidden> <Icon name='edit'></Icon> </Button.Content>
       </Button>

@@ -1,11 +1,10 @@
-import { Container, } from "semantic-ui-react";
+import { Container, Header } from "semantic-ui-react";
 import { AppContainer, } from './styles/AppStyles';
 
 
 import React, { Fragment } from 'react';
 import { Route, Switch, } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Welcome from './components/Welcome';
 import Home from './components/Home';
 import NoMatch from './components/NoMatch';
 import About from './components/About';
@@ -23,7 +22,14 @@ const App = () => (
     <Container>
       <Fragment>
         <br />
-        <Welcome />
+        <Header size='huge'
+        textAlign='center'
+        basic color='black'
+        >
+        
+          Welcome
+        </Header>
+
         <br />
         <Navbar />
         <hr />

@@ -15,7 +15,10 @@ class Departments extends React.Component {
     return this.state.departments.map(d => (
       <Link to={`/departments/${d.id}`}>
         <br />
-        <Segment inverted>
+        <Segment
+        raised
+        color='black'
+        >
           {d.name}
         </Segment>
       </Link>
@@ -31,9 +34,9 @@ class Departments extends React.Component {
         </h1>
         <br />
         <Link to="/departments/new">
-          <Button color="black" animated='fade' >
+          <Button basic color='black' animated='fade' >
           <Button.Content visible>New Department </Button.Content>
-              <Button.Content hidden> Add <Icon name='add' /> </Button.Content>
+              <Button.Content hidden> <Icon name='add' /> </Button.Content>
             </Button>
         </Link>
         <ul>

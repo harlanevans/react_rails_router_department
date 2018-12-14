@@ -46,13 +46,13 @@ class Department extends React.Component {
     const { dep: { id, name, }, } = this.state;
     return (
       <div>
-        <Button color="black" animated='fade' onClick={() => this.handleDelete(id)}>
+        <Button basic color='black' animated='fade' onClick={() => this.handleDelete(id)}>
         <Button.Content visible>Delete Department</Button.Content>
               <Button.Content hidden> <Icon name='trash' /> </Button.Content>
             </Button>
         <Link to={`/departments/${id}/edit`}>
           
-          <Button color="black" animated='fade'>
+          <Button basic color='black' animated='fade'>
           <Button.Content visible>Edit Department </Button.Content>
               <Button.Content hidden> <Icon name='edit' /> </Button.Content>
             </Button>
@@ -62,7 +62,7 @@ class Department extends React.Component {
         </h1>
         <Link to={`/departments/${id}/items/new`}>
         <Button  
-        color='black'
+        basic color='black'
         animated='fade'>
         <Button.Content visible>New Item</Button.Content>
         <Button.Content hidden><Icon name='add' />

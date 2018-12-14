@@ -23,8 +23,6 @@ class ItemForm extends React.Component {
     // const { id, itemId } = this.props.match.params;
     // const { push } = this.props.history;
     const { match: { params: {id, itemId } }, history: { push, } }= this.props;
-
-
     if (itemId) {
       axios.put(`/api/departments/${id}/items/${itemId}`, {...this.state})
       .then(res => push(`/departments/${id}`))
@@ -70,7 +68,7 @@ class ItemForm extends React.Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button color="black" animated='fade'>
+          <Button basic inverted color='white' animated='fade'>
           <Button.Content visible>
             Submit
           </Button.Content>

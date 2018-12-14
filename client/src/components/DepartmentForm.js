@@ -60,7 +60,7 @@ class DepartmentForm extends React.Component {
             required
           />
           <br />
-          <Button color="black" animated='fade'>
+          <Button basic inverted color='white' animated='fade'>
             <Button.Content visible>Submit </Button.Content>
             <Button.Content hidden> <Icon name='check' /> </Button.Content>
           </Button>
