@@ -12,7 +12,6 @@ class ItemForm extends React.Component {
     .then(res => this.setState({ ...res.data, }))
   }
 
-
   handleChange = (e) => {
     const { name, value, } = e.target;
     this.setState({ [name]: value, });

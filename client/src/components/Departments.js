@@ -29,7 +29,7 @@ class Departments extends React.Component {
   render() {
     return (
       <div>
-        <h1>
+        <h1 style={{ textAlign: "center" }}>
           Departments
         </h1>
         <br />
