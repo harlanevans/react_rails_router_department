@@ -67,7 +67,7 @@ class ItemForm extends React.Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button basic inverted color='white' animated='fade'>
+          <Button basic color='black' animated='fade'>
           <Button.Content visible>
             Submit
           </Button.Content>

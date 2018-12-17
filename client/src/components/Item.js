@@ -24,15 +24,14 @@ class Item extends React.Component {
 
   removeReview = (reviewId) => {
     const remove = window.confirm("Are you sure you want to delete this item?");
-    const itemId = this.props.match.params.id;
     if (remove)
-    axios.delete(`/api/items/${itemId}/reviews/${reviewId}`)
+    axios.delete(`/api/items/${this.props.itemId}/reviews/${reviewId}`)
     .then(res => {
       const reviews = this.state.reviews.filter(r => {
         if (r.id !== reviewId)
         return r;
       })
-      this.setState({reviews,})
+      this.setState({reviews})
     })
   }
 

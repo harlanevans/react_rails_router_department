@@ -9,12 +9,11 @@ const Lotr = () => (
       >
       Welcome to Lord of the Rings Coffee Shop!
     </Header>
-    <br />
     <Segment vertical basic textAlign='center'>
       <Header as='h2'
       textAlign='center'>
         Phone
-        <Header.Subheader><Icon name='phone'/>801-853-5345</Header.Subheader>
+        <Header.Subheader><Icon name='phone'/>1-800-THE-RING</Header.Subheader>
       </Header>
     </Segment>
     <Segment vertical basic textAlign='center'>
